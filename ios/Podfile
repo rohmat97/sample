@@ -1,0 +1,91 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'IndoHUB' do
+  rn_path = '../node_modules/react-native'
+  rn_maps_path = '../node_modules/react-native-maps'
+  rn_video_path = '../node_modules/react-native-video'
+
+  # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies
+  pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+  pod 'React', path: rn_path, subspecs: [
+    'Core',
+    'CxxBridge',
+    'DevSupport',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket',
+  ]
+
+  # React Native third party dependencies podspecs
+  pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
+  pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/glog.podspec"
+  # If you are using React Native <0.54, you will get the following error:
+  # "The name of the given podspec `GLog` doesn't match the expected one `glog`"
+  # Use the following line instead:
+  #pod 'GLog', :podspec => "#{rn_path}/third-party-podspecs/GLog.podspec"
+  pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+
+  # react-native-maps dependencies
+  pod 'react-native-maps', path: rn_maps_path
+  pod 'react-native-google-maps', path: rn_maps_path  # Uncomment this line if you want to support GoogleMaps on iOS
+  pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
+  pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
+  
+  # CodePush plugin dependency
+  pod 'CodePush', :path => '../node_modules/react-native-code-push'
+
+  # Required by RNFirebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase/ios'
+
+  # extra plugin dependency
+  pod 'react-native-video', path: rn_video_path
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
+  pod 'react-native-splash-screen', :path => '../node_modules/react-native-splash-screen'
+
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'react-native-branch', :path => '../node_modules/react-native-branch'
+
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == 'react-native-google-maps'
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ENABLE_MODULES'] = 'No'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+      end
+    end
+    if target.name == "React"
+      target.remove_from_project
+    end
+    if target.name == 'react-native-config'
+      phase = target.project.new(Xcodeproj::Project::Object::PBXShellScriptBuildPhase)
+      phase.shell_script = "cd ../../"\
+      " && RNC_ROOT=./node_modules/react-native-config/"\
+      " && export SYMROOT=$RNC_ROOT/ios/ReactNativeConfig"\
+      " && ruby $RNC_ROOT/ios/ReactNativeConfig/BuildDotenvConfig.ruby"
+      
+      target.build_phases << phase
+      target.build_phases.move(phase,0)
+    end
+  end
+end

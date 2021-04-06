@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>390852811452-t573dpu74eclsen4u45jlips2alh20rd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.390852811452-t573dpu74eclsen4u45jlips2alh20rd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAf0lbGTVj21SrcnqwiUxuCXAN9obxjN_A</string>
+	<key>GCM_SENDER_ID</key>
+	<string>390852811452</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.pthadeindosejahtera.IndoHUB</string>
+	<key>PROJECT_ID</key>
+	<string>indohub-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>indohub-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:390852811452:ios:cf152acd823b821b004eb9</string>
+	<key>DATABASE_URL</key>
+	<string>https://indohub-app.firebaseio.com</string>
+</dict>
+</plist>

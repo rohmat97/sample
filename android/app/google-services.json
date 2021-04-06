@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "390852811452",
+    "firebase_url": "https://indohub-app.firebaseio.com",
+    "project_id": "indohub-app",
+    "storage_bucket": "indohub-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390852811452:android:8d30af0d7ff72fb1004eb9",
+        "android_client_info": {
+          "package_name": "com.indohub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390852811452-094i1leddd2qhtfomca0kgofjj03tte0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.indohub",
+            "certificate_hash": "62e8d668d4288dcdb067920489b4d674995b8194"
+          }
+        },
+        {
+          "client_id": "390852811452-dr2knpaeolpjqprh9mmloqj7mip42sqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP_F8MYczSeMcASKeId4HX1wtqD3obDbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390852811452-dr2knpaeolpjqprh9mmloqj7mip42sqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "390852811452-t573dpu74eclsen4u45jlips2alh20rd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.pthadeindosejahtera.IndoHUB",
+                "app_store_id": "479262642"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
